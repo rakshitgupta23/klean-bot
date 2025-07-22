@@ -38,18 +38,18 @@ def handle_message(_: WhatsApp, msg: types.Message):
 def send_welcome_message(user_id, name):
     wa.send_message(
         to=user_id,
-        text=f"👋 Hi {name}, welcome to Klean!\n\nChoose an option to get started:",
+        text=f"👋 Hi {name}, welcome to Flean!\n\nChoose an option to get started:",
         buttons=[
-            types.Button(title="About Klean", callback_data="ABOUT_KLEAN"),
-            types.Button(title="How to use Klean", callback_data="HOW_USE_KLEAN"),
+            types.Button(title="About Flean", callback_data="ABOUT_FLEAN"),
+            types.Button(title="How to use Flean", callback_data="HOW_USE_FLEAN"),
         ]
     )
 
 @wa.on_callback_button()
 def handle_buttons(_: WhatsApp, clb: types.CallbackButton):
-    if clb.data == "ABOUT_KLEAN":
-        clb.reply_text("📢 Klean helps uncover the truth about ingredients in food, cosmetics, and more.")
-    elif clb.data == "HOW_USE_KLEAN":
+    if clb.data == "ABOUT_FLEAN":
+        clb.reply_text("📢 Flean helps uncover the truth about ingredients in food, cosmetics, and more.")
+    elif clb.data == "HOW_USE_FLEAN":
         clb.reply_text("🔍 Just type the name of a product or ingredient and we’ll tell you what’s really inside.")
 
 def fake_backend(message: str) -> str:
